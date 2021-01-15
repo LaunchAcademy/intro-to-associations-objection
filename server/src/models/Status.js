@@ -1,6 +1,6 @@
 const Model = require("./Model")
 
-class Movie extends Model {
+class Status extends Model {
   static get tableName() {
     return "statuses"
   }
@@ -8,7 +8,7 @@ class Movie extends Model {
   static get relationMappings() {
     const User = require("./User")
     return {
-      genre: {
+      user: {
         relation: Model.BelongsToOneRelation,
         modelClass: User,
         join: {
@@ -32,4 +32,4 @@ class Movie extends Model {
   }
 }
 
-module.exports = Movie
+module.exports = Status
