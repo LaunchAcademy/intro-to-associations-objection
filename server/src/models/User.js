@@ -6,7 +6,7 @@ class User extends Model {
   }
 
   static get relationMappings() {
-    const Status = require("./index")
+    const { Status } = require("./index")
 
     return {
       statuses: {

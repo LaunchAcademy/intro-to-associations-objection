@@ -12,6 +12,8 @@ class Seeder {
     const kerrin = await User.query().insert({ username: "Kerrin", email: "right@meow.com" })
 
     await fang.$relatedQuery("statuses").insert({ body: "Pretty cold out today", privacy: "no" })
+    // await Status.query().insert({ userId: fang.id, body: "Pretty cold out today", privacy: "no" })
+
     await fang
       .$relatedQuery("statuses")
       .insert({ body: "Hunter x Hunter was good, but it really jumps around", privacy: "yes" })
