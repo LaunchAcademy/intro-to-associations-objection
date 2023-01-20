@@ -8,12 +8,17 @@ import Status from "../models/Status.js"
 class Seeder {
   static async seed() {
     console.log("seeding...")
+    // MAKE TWO USERS
     const fang = await User.query().insert({ username: "Fang", email: "pork@buns.com" })
     const kerrin = await User.query().insert({ username: "Kerrin", email: "right@meow.com" })
 
+    // add a status for Fang
     await fang.$relatedQuery("statuses").insert({ body: "Pretty cold out today", privacy: "no" })
+    // without relatedQuery
     // await Status.query().insert({ userId: fang.id, body: "Pretty cold out today", privacy: "no" })
 
+
+    // add two statuses for each user
     await fang
       .$relatedQuery("statuses")
       .insert({ body: "Hunter x Hunter was good, but it really jumps around", privacy: "yes" })
@@ -21,6 +26,7 @@ class Seeder {
       .$relatedQuery("statuses")
       .insert({ body: "I'm feeling pretty hungry today. Maybe...pizza?", privacy: "no" })
 
+    // add three statuses for Kerrin
     await kerrin
       .$relatedQuery("statuses")
       .insert({ body: "The cats are at war and I'm stuck in the middle", privacy: "no" })

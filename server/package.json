@@ -17,9 +17,9 @@
   "private": true,
   "type": "module",
   "version": "0.0.1",
-  "name": "intro-to-associations-server",
+  "name": "one-to-many-associations-in-express-and-objection-server",
   "engines": {
-    "node": "^14.8"
+    "node": "^16.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

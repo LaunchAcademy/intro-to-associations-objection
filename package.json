@@ -13,6 +13,6 @@
     "start": "yarn workspace one-to-many-associations-in-express-and-objection-server start"
   },
   "engines": {
-    "node": "^14.8"
+    "node": "^16.18"
   }
 }
