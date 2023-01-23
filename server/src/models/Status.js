@@ -7,7 +7,10 @@ class Status extends Model {
 
   static get relationMappings() {
     const { User } = require("./index")
+    // Status belongs to a User
+      //   ^^ association  // singular/plual
 
+      // firstStatus.$relatedQuery("user")
     return {
       user: {
         relation: Model.BelongsToOneRelation,

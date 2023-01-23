@@ -7,7 +7,8 @@ class User extends Model {
 
   static get relationMappings() {
     const { Status } = require("./index")
-
+    // User has many Statuses
+      // ^^ association  ^^ plural/singular
     return {
       statuses: {
         relation: Model.HasManyRelation,
