@@ -6,8 +6,10 @@ class Status extends Model {
   }
 
   static get relationMappings() {
-    const { User } = require("./index")
+    const User = require("./User")
 
+
+    // Status belongs to a User (singular)
     return {
       user: {
         relation: Model.BelongsToOneRelation,
