@@ -8,6 +8,9 @@ class User extends Model {
   static get relationMappings() {
     const { BeanieBaby } = require("./index")
 
+    // `from` indicates the table we're coming from aka this current model
+    // coming "from" THIS model
+    // going "to" the associated model table, specifying the column
     return {
       beanieBabies: {
         relation: Model.HasManyRelation,

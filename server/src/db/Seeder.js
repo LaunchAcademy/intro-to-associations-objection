@@ -13,9 +13,9 @@ class Seeder {
     const kerrin = await User.query().insert({ username: "Kerrin", email: "right@meow.com" })
 
     // add a status for Fang
-    await fang.$relatedQuery("statuses").insert({ body: "Pretty cold out today", privacy: "no" })
+    // await fang.$relatedQuery("statuses").insert({ body: "Pretty cold out today", privacy: "no" })
     // without relatedQuery
-    // await Status.query().insert({ userId: fang.id, body: "Pretty cold out today", privacy: "no" })
+    await Status.query().insert({ userId: fang.id, body: "Pretty cold out today", privacy: "no" })
 
 
     // add two statuses for each user
