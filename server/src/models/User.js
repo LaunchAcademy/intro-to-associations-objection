@@ -6,20 +6,24 @@ class User extends Model {
   }
 
   static get relationMappings() {
-    const { Status } = require("./index")
-    // User has many Statuses
-      // ^^ association  ^^ plural/singular
+    const { BeanieBaby } = require("./index")
+
     return {
-      statuses: {
+      beanieBabies: {
         relation: Model.HasManyRelation,
-        modelClass: Status,
+        modelClass: BeanieBaby,
         join: {
           from: "users.id",
-          to: "statuses.userId"
+          to: "beanieBabies.userId"
         }
       }
     }
   }
+
+  // const nick = await User.query().insertAndFetch({ userName: "Nick", email: "nick@nick.com"})
+
+  // await nick.$relatedQuery("beanieBabies")
+
 
   static get jsonSchema() {
     return {

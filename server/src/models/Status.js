@@ -5,24 +5,9 @@ class Status extends Model {
     return "statuses"
   }
 
-  static get relationMappings() {
-    const { User } = require("./index")
-    // Status belongs to a User
-      //   ^^ association  // singular/plual
+  // ... 
 
-      // firstStatus.$relatedQuery("user")
-    return {
-      user: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: User,
-        join: {
-          from: "statuses.userId",
-          to: "users.id"
-        }
-      }
-    }
-  }
-
+  
   static get jsonSchema() {
     return {
       type: "object",

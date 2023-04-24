@@ -1,3 +1,5 @@
+import BeanieBabySerializer from "./BeanieBabySerializer.js"
+
 class UserSerializer {
   static getSummary(users) {
     // intended to serializer an array of users
@@ -6,12 +8,15 @@ class UserSerializer {
     const requiredAttributes = ["id", "username"]
     // iterate over all the users, filter for required attributes
     const serializedUsers = users.map((user) => {
+      // create an object to assign properties to
       let serializedUser = {}
-      // debugger
+      
+      // iterate over the attributes 
       for (const attribute of requiredAttributes) {
-        // debugger
+        // assign value of passed user to serialized user object
         serializedUser[attribute] = user[attribute]
       }
+      // return the new object
       return serializedUser
     })
 
@@ -19,15 +24,22 @@ class UserSerializer {
     return serializedUsers
   }
 
+
+
   static async getDetails(user) {
     const requiredAttributes = ["id", "username", "email"]
+
     let serializedUser = {}
 
     for (const attribute of requiredAttributes) {
       serializedUser[attribute] = user[attribute]
     }
 
-    serializedUser.statuses = await user.$relatedQuery("statuses")
+    const beanieBabies = await user.$relatedQuery("beanieBabies")
+
+    const serializedBeanieBabies = BeanieBabySerializer.getSummary(beanieBabies)
+
+    serializedUser.beanieBabies = serializedBeanieBabies
 
     return serializedUser
   }
