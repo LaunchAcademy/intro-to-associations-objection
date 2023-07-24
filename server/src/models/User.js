@@ -5,21 +5,6 @@ class User extends Model {
     return "users"
   }
 
-  static get relationMappings() {
-    const { Status } = require("./index")
-
-    return {
-      statuses: {
-        relation: Model.HasManyRelation,
-        modelClass: Status,
-        join: {
-          from: "users.id",
-          to: "statuses.userId"
-        }
-      }
-    }
-  }
-
   static get jsonSchema() {
     return {
       type: "object",
@@ -27,6 +12,21 @@ class User extends Model {
       properties: {
         username: { type: "string", minLength: 1, maxLength: 20 },
         email: { type: "string", format: "email" }
+      }
+    }
+  }
+
+  static get relationMappings() {
+    const { BeanieBaby } = require("./index")
+
+    return {
+      beanieBabies: {
+        relation: Model.HasManyRelation,
+        modelClass: BeanieBaby,
+        join: {
+          from: "users.id",
+          to: "beanieBabies.userId"
+        }
       }
     }
   }
