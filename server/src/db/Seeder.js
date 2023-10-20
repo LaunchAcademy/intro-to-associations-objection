@@ -7,7 +7,6 @@ import Status from "../models/Status.js"
 
 class Seeder {
   static async seed() {
-    console.log("seeding...")
     // MAKE TWO USERS
     const fang = await User.query().insert({ username: "Fang", email: "pork@buns.com" })
     const kerrin = await User.query().insert({ username: "Kerrin", email: "right@meow.com" })

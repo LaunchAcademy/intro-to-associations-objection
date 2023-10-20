@@ -2,4 +2,5 @@
 const Model = require("./Model")
 const User = require("./User")
 const Status = require("./Status")
-module.exports = { Model, User, Status }
+const Slinky = require("./Slinky")
+module.exports = { Model, User, Status, Slinky }

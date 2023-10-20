@@ -6,7 +6,7 @@ class User extends Model {
   }
 
   static get relationMappings() {
-    const { Status } = require("./index")
+    const { Status, Slinky } = require("./index.js")
 
     return {
       statuses: {
@@ -15,6 +15,14 @@ class User extends Model {
         join: {
           from: "users.id",
           to: "statuses.userId"
+        }
+      }, 
+      slinkies: {
+        relation: Model.HasManyRelation,
+        modelClass: Slinky,
+        join: {
+          from: "users.id",
+          to: "slinkies.userId"
         }
       }
     }

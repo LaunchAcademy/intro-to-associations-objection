@@ -6,7 +6,12 @@ import { hot } from "react-hot-loader/root"
 import "../assets/scss/main.scss"
 
 const App = (props) => {
-  return <h1>Hello From the App!</h1>
+  return (
+  <BrowserRouter>
+    <Switch>
+    </Switch>
+  </BrowserRouter>
+  )
 }
 
 export default hot(App)
