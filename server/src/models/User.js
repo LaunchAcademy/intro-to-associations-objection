@@ -5,10 +5,21 @@ class User extends Model {
     return "users"
   }
 
+  // User -< BeanieBabies
+  // User has many BeanieBabies
   static get relationMappings() {
-    const { Status } = require("./index")
+    const { Status, BeanieBaby } = require("./index")
+    // const BeanieBaby = require("./BeanieBaby")
 
     return {
+      beanieBabies: {
+        relation: Model.HasManyRelation,
+        modelClass: BeanieBaby,
+        join: {
+          from: "users.id",
+          to: "beanieBabies.userId"
+        }
+      },
       statuses: {
         relation: Model.HasManyRelation,
         modelClass: Status,
